@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Articles</title>
+    <style>
+        .articles-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+            margin: 50px 0;
+        }
+
+        .article-block {
+            position: relative;
+            width: calc(33% - 20px);
+            height: 250px; /* Adjust height as needed */
+            background-size: cover;
+            background-position: center;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+            color: #ffffff;
+            text-decoration: none; /* Remove underline for clickable cards */
+        }
+
+        .article-block:hover {
+            transform: translateY(-5px);
+        }
+
+        .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 15px;
+            text-align: center;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+
+        .article-title {
+            margin: 0 0 10px;
+            font-size: 18px;
+            font-weight: bold;
+            color: black;
+            background-color: rgba(255, 255, 255, 0.9); /* 50% transparent white background */
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        .publish-date {
+            color: yellow;
+            text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; /* Black outline */
+            font-size: 14px;
+            margin-bottom: 15px;
+            background-color: rgba(255, 255, 255, 0.9); /* 50% transparent white background */
+        }
+
+        .read-more {
+            display: inline-block;
+            padding: 8px 15px;
+            background-color: #0073e6;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .read-more:hover {
+            background-color: #005bb5;
+        }
+
+        /* Media Query for Mobile Devices */
+        @media (max-width: 768px) {
+            .article-block {
+                width: 100%; /* Full width on mobile */
+            }
+
+            .articles-container {
+                justify-content: center; /* Center the cards */
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="articles-container">
+    <!-- Article 1 -->
+    <a href="https://notoolsnocraft.tech/overriding-bootstrap-navigation-link-color-to-blue/" class="article-block" style="background-image: url('https://notoolsnocraft.tech/wp-content/uploads/2024/11/Issue-with-Unnecessary-Space-Under-the-Page-Header-Component-in-Mobile-View.png');">
+        <div class="overlay">
+            <h3 class="article-title">Just came across this post and I'll definitely be trying this out!</h3>
+            <p class="publish-date">Published on: January 1, 2024</p>
+            <span class="read-more">Read More</span>
+        </div>
+    </a>
+
+    <!-- Article 2 -->
+    <a href="https://notoolsnocraft.tech/overriding-bootstrap-navigation-link-color-to-blue/" class="article-block" style="background-image: url('https://notoolsnocraft.tech/wp-content/uploads/2024/09/Free-QR-Code-Generator-with-Logo-in-Middle.webp');">
+        <div class="overlay">
+            <h3 class="article-title">Article 2</h3>
+            <p class="publish-date">Published on: February 15, 2024</p>
+            <span class="read-more">Read More</span>
+        </div>
+    </a>
+
+    <!-- Article 3 -->
+    <a href="https://notoolsnocraft.tech/overriding-bootstrap-navigation-link-color-to-blue/" class="article-block" style="background-image: url('https://notoolsnocraft.tech/wp-content/uploads/2024/11/Issue-with-Unnecessary-Space-Under-the-Page-Header-Component-in-Mobile-View.png');">
+        <div class="overlay">
+            <h3 class="article-title">Just came across this post and I'll definitely be trying this out!</h3>
+            <p class="publish-date">Published on: January 1, 2024</p>
+            <span class="read-more">Read More</span>
+        </div>
+    </a>
+
+    <!-- Article 4 -->
+    <a href="https://notoolsnocraft.tech/overriding-bootstrap-navigation-link-color-to-blue/" class="article-block" style="background-image: url('https://notoolsnocraft.tech/wp-content/uploads/2024/09/Free-QR-Code-Generator-with-Logo-in-Middle.webp');">
+        <div class="overlay">
+            <h3 class="article-title">Article 4</h3>
+            <p class="publish-date">Published on: February 15, 2024</p>
+            <span class="read-more">Read More</span>
+        </div>
+    </a>
+
+    <!-- Article 5 -->
+    <a href="https://notoolsnocraft.tech/overriding-bootstrap-navigation-link-color-to-blue/" class="article-block" style="background-image: url('https://notoolsnocraft.tech/wp-content/uploads/2024/11/Issue-with-Unnecessary-Space-Under-the-Page-Header-Component-in-Mobile-View.png');">
+        <div class="overlay">
+            <h3 class="article-title">Just came across this post and I'll definitely be trying this out!</h3>
+            <p class="publish-date">Published on: January 1, 2024</p>
+            <span class="read-more">Read More</span>
+        </div>
+    </a>
+
+    <!-- Article 6 -->
+    <a href="https://notoolsnocraft.tech/overriding-bootstrap-navigation-link-color-to-blue/" class="article-block" style="background-image: url('https://notoolsnocraft.tech/wp-content/uploads/2024/09/Free-QR-Code-Generator-with-Logo-in-Middle.webp');">
+        <div class="overlay">
+            <h3 class="article-title">Article 6</h3>
+            <p class="publish-date">Published on: February 15, 2024</p>
+            <span class="read-more">Read More</span>
+        </div>
+    </a>
+</div>
+
+</body>
+</html>
