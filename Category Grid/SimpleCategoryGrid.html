@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category Grid</title>
+    <style>
+        .entry-content h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 34px; /* Adjust as needed */
+            font-weight: 700; /* Optional for a bolder look */
+        }
+
+        .categories-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center; /* Center align the category blocks */
+        }
+
+        .category-block {
+            display: inline-block;
+            padding: 15px 20px;
+            text-align: center;
+            background-color: #0073e6;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .category-block:hover {
+            background-color: #ffffff; /* Change background color to white */
+            color: #0073e6; /* Change text color to match the original background */
+        }
+
+        .categories-container a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="entry-content clear" itemprop="text">
+        <h2>Kategorien Erkunden</h2>
+        <div class="categories-container">
+            <a class="category-block" href="https://notoolsnocraft.tech/category/html-und-css/">HTML und CSS</a>
+            <a class="category-block" href="https://notoolsnocraft.tech/category/ai-learning/">AI Learning</a>
+            <a class="category-block" href="https://notoolsnocraft.tech/category/api/">API</a>
+            <a class="category-block" href="https://notoolsnocraft.tech/category/confluence/">Confluence</a>
+            <a class="category-block" href="https://notoolsnocraft.tech/category/qa-testing-tools/cypress/">Cypress</a>
+        </div>
+    </div>
+</body>
+</html>
