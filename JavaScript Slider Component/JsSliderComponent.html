@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider Component</title>
+    <style>
+        /* Slider Section */
+.slider {
+    position: relative;
+    max-width: 90%;
+    margin: 40px auto;
+    overflow: hidden;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.slider-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    min-width: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.slide.active {
+    display: flex;
+}
+
+.slide-icon {
+    font-size: 3em;
+    margin-bottom: 15px;
+}
+
+h3 {
+    margin: 15px 0;
+    font-size: 1.8em;
+}
+
+p {
+    font-size: 1.1em;
+    margin-bottom: 20px;
+}
+
+.slide-button {
+    background-color: #007bff; /* Button background color */
+    color: white; /* Text color */
+    border: none; /* No border */
+    padding: 10px 20px; /* Padding for the button */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* Remove underline */
+    font-size: 1em; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    display: inline-block; /* Make it behave like a button */
+}
+
+.slide-button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+/* Slider Controls */
+.slider-controls {
+    position: absolute;
+    top: 50%;
+    width: 97%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.prev-slide,
+.next-slide {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    font-size: 2em;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.prev-slide:hover,
+.next-slide:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .slider {
+        padding: 15px;
+    }
+
+    .slide-icon {
+        font-size: 2.5em;
+    }
+
+    h3 {
+        font-size: 1.5em;
+    }
+
+    p {
+        font-size: 1em;
+    }
+
+    .slide-button {
+        font-size: 1em;
+        padding: 8px 15px;
+    }
+
+    .slider-controls {
+        
+        top: 40%;
+        width: 93%;
+        
+        
+        
+    }
+}
+    </style>
+</head>
+<body>
+    <section class="slider">
+        <div class="slider-container">
+            <div class="slide active">
+                <i class="slide-icon">📱</i>
+                <h3>Mobile Development</h3>
+                <p>Build cutting-edge mobile applications that run smoothly across all devices.</p>
+                <a href="#link-to-be-added" class="slide-button">Read More</a>
+            </div>
+            <div class="slide">
+                <i class="slide-icon">💻</i>
+                <h3>Web Development</h3>
+                <p>Create responsive websites with modern technologies for the best user experience.</p>
+                <a href="#link-to-be-added" class="slide-button">Read More</a>
+            </div>
+            <div class="slide">
+                <i class="slide-icon">🎮</i>
+                <h3>Game Development</h3>
+                <p>Design immersive 2D and 3D games for mobile, desktop, and consoles.</p>
+                <a href="#link-to-be-added" class="slide-button">Read More</a>
+            </div>
+            <div class="slide">
+                <i class="slide-icon">⚙️</i>
+                <h3>Automation</h3>
+                <p>Streamline your processes with custom automation tools and testing frameworks.</p>
+                <a href="#link-to-be-added" class="slide-button">Read More</a>
+            </div>
+        </div>
+        <div class="slider-controls">
+            <button class="prev-slide" aria-label="Previous Slide">❮</button>
+            <button class="next-slide" aria-label="Next Slide">❯</button>
+        </div>
+    </section>
+
+    <script>
+       document.addEventListener("DOMContentLoaded", function () {
+    const slides = document.querySelectorAll(".slide");
+    const nextBtn = document.querySelector(".next-slide");
+    const prevBtn = document.querySelector(".prev-slide");
+    let currentSlide = 0;
+
+    function showSlide(index) {
+        slides.forEach(slide => slide.classList.remove("active"));
+        slides[index].classList.add("active");
+    }
+
+    nextBtn.addEventListener("click", function () {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+    });
+
+    prevBtn.addEventListener("click", function () {
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        showSlide(currentSlide);
+    });
+});
+    </script>
+</body>
+</html>
