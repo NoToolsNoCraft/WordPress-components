@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slideshow Banner Component</title>
+    <style>
+        body {
+            margin: 0;
+            display: block; /* Ensures components stack vertically */
+            background-color: white; /* Optional: background color */
+            padding: 20px; /* Optional: adds space around each component */
+        }
+
+        .banner-container {
+        width: 60%; /* Adjust as needed */
+        margin: 0 auto 20px; /* Centers the component and adds space between banners */
+        overflow: hidden;
+        position: relative;
+        border: 5px double black; /* Adds a black double-line outline */
+        box-sizing: border-box; /* Ensures border is included in the total width/height */
+        }
+
+        .banner-images {
+            display: flex;
+            transition: transform 1s ease-in-out;
+        }
+
+        .banner-images img {
+            width: 100%; /* Ensures images scale to the container */
+            height: 100%; /* Maintains aspect ratio */
+            flex-shrink: 0;
+        }
+
+        .banner-container img {
+            display: block;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+        .banner-container {
+        width: 100%; /* Adjust as needed */
+        }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 
+        The size of the first image (first slide) determines the overall dimensions of the image container. 
+        To maintain consistent behavior, all other images should match the size of the first image. 
+        Ideally, ensure that all images have the same dimensions (width and height) to prevent resizing issues 
+        and ensure a smooth sliding effect.
+    -->
+
+<!--  Banner 1   -->
+
+    <div class="banner-container">
+        <div class="banner-images">
+            <img src="https://media.iqos.com/is/image/pmintl/homepage-hb-desktop-one?$JPG1920x700$&1727093091000" alt="Slide 1">
+            <img src="https://media.iqos.com/is/image/pmintl/Desktop_UAE_EN?$JPG1920x700$&1727076136000" alt="Slide 2">
+        </div>
+    </div>
+
+<!--  Banner 2   -->
+
+    <div class="banner-container">
+        <div class="banner-images">
+            <img src="https://notoolsnocraft.tech/wp-content/uploads/2024/11/Erstellung-eines-Zwei-Spalten-Komponents-fur-Webinhalte.webp" alt="Slide 1">
+            <img src="https://notoolsnocraft.tech/wp-content/uploads/2024/11/Erstellung-eines-Drei-Spalten-Komponents-fur-Webinhalte.webp" alt="Slide 2">
+            <img src="https://notoolsnocraft.tech/wp-content/uploads/2024/11/Blue-background-image.webp" alt="Slide 3">
+        </div>
+    </div>
+
+<!--  Banner 3   -->
+
+    <div class="banner-container">
+        <div class="banner-images">
+            <img src="https://notoolsnocraft.tech/wp-content/uploads/2024/09/Free-QR-Code-Generator-with-Logo-in-Middle.webp" alt="Slide 1">
+            <img src="https://notoolsnocraft.tech/wp-content/uploads/2024/09/Toma-Mona-igrica-sakupljanje-jaja.webp" alt="Slide 2">
+            <img src="https://notoolsnocraft.tech/wp-content/uploads/2024/05/How-to-Use-Draw.io-in-Confluence.webp" alt="Slide 3">
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.banner-container').forEach((container) => {
+            const bannerImages = container.querySelector('.banner-images');
+            const images = container.querySelectorAll('.banner-images img');
+            let index = 0;
+    
+            function slideImages() {
+                index++;
+                if (index >= images.length) {
+                    index = 0;
+                }
+                bannerImages.style.transform = `translateX(${-index * 100}%)`;
+            }
+    
+            setInterval(slideImages, 5000); // Change slide every 5 seconds
+        });
+    </script>
+</body>
+</html>
