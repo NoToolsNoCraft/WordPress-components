@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Image Slider</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full viewport height */
+            margin: 0;
+        }
+        .slider-container {
+            position: relative;
+            max-width: 600px;
+            margin: auto;
+            overflow: hidden;
+            border: 2px solid #ddd;
+        }
+        .slider-image {
+            width: 100%;
+            display: none;
+        }
+        .slider-image.active {
+            display: block;
+        }
+        .control-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 1;
+        }
+        #prevButton {
+            left: 0;
+            border-radius: 0 5px 5px 0;
+        }
+        #nextButton {
+            right: 0;
+            border-radius: 5px 0 0 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slider-container" id="slider">
+        <button class="control-button" id="prevButton">&lt;</button>
+        <button class="control-button" id="nextButton">&gt;</button>
+    </div>
+    
+
+    <script>
+        // Image Slider Class Implementation
+        class ImageSlider {
+            constructor(containerId, images, interval = 7000) {
+                this.container = document.getElementById(containerId);
+                this.images = images;
+                this.currentIndex = 0;
+                this.interval = interval;
+                this.timer = null;
+
+                this.createImageElements();
+                this.showImage(this.currentIndex);
+                this.startAutoCycle();
+
+                document.getElementById('prevButton').addEventListener('click', () => this.prevImage());
+                document.getElementById('nextButton').addEventListener('click', () => this.nextImage());
+            }
+
+            createImageElements() {
+                this.images.forEach((src, index) => {
+                    const img = document.createElement('img');
+                    img.src = src;
+                    img.classList.add('slider-image');
+                    if (index === 0) img.classList.add('active');
+                    this.container.appendChild(img);
+                });
+            }
+
+            showImage(index) {
+                const images = this.container.querySelectorAll('.slider-image');
+                images.forEach((img, i) => {
+                    img.classList.toggle('active', i === index);
+                });
+            }
+
+            nextImage() {
+                this.currentIndex = (this.currentIndex + 1) % this.images.length;
+                this.showImage(this.currentIndex);
+                this.resetTimer();
+            }
+
+            prevImage() {
+                this.currentIndex = (this.currentIndex - 1 + this.images.length) % this.images.length;
+                this.showImage(this.currentIndex);
+                this.resetTimer();
+            }
+
+            startAutoCycle() {
+                this.timer = setInterval(() => this.nextImage(), this.interval);
+            }
+
+            resetTimer() {
+                clearInterval(this.timer);
+                this.startAutoCycle();
+            }
+        }
+
+        // Instantiate the ImageSlider with a set of image URLs
+        const images = [
+            'https://notoolsnocraft.tech/wp-content/uploads/2024/10/2024-US-election-calculator-1024x576.webp',
+            'https://notoolsnocraft.tech/wp-content/uploads/2024/09/Free-QR-Code-Generator-with-Logo-in-Middle-1024x576.webp',
+            'https://notoolsnocraft.tech/wp-content/uploads/2024/11/Yellow-background-image.webp',
+            'https://notoolsnocraft.tech/wp-content/uploads/2024/11/Overriding-Bootstrap-Navigation-Link-Color-to-Blue.png.webp'
+        ];
+
+        new ImageSlider('slider', images);
+    </script>
+</body>
+</html>
