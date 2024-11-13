@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accordion component</title>
+    <!-- Accordion Menu CSS Styling -->
+<style>
+
+    body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full viewport height */
+            margin: 0;
+        }
+    .accordion {
+      width: 60%;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    .accordion-item {
+      border-bottom: 1px solid #ddd;
+    }
+    .accordion-header {
+      background-color: #f7f7f7;
+      border: none;
+      outline: none;
+      width: 100%;
+      text-align: left;
+      padding: 15px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .accordion-header:hover {
+      background-color: #e2e2e2;
+    }
+    .accordion-content {
+      display: none;
+      padding: 15px;
+      background-color: #f9f9f9;
+    }
+    .accordion-content p {
+      margin: 0;
+    }
+    </style>
+</head>
+
+<body>
+    <!-- Accordion Menu HTML Structure -->
+<div id="accordionContainer" class="accordion">
+
+    <div class="accordion-item">
+      <button class="accordion-header">Section 1</button>
+      <div class="accordion-content">
+        <p>Content for section 1. This is where you can add any relevant information.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-header">Section 2</button>
+      <div class="accordion-content">
+        <p>Content for section 2. This section can include more details or links.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-header">Section 3</button>
+      <div class="accordion-content">
+        <p>Content for section 3. Customize as needed for your specific use.</p>
+      </div>
+    </div>
+  
+
+  <div class="accordion-item">
+    <button class="accordion-header">Section 4</button>
+    <div class="accordion-content">
+      <p>Content for section 4. Customize as needed for your specific use.</p>
+    </div>
+  </div>
+
+  
+</div>
+    
+
+    <!-- Accordion Menu JavaScript using OOP -->
+<script>
+    class Accordion {
+      constructor(containerId) {
+        this.container = document.getElementById(containerId);
+        this.headers = this.container.querySelectorAll('.accordion-header');
+        this.init();
+      }
+    
+      init() {
+        this.headers.forEach(header => {
+          header.addEventListener('click', (event) => {
+            event.preventDefault(); // Prevent default focus behavior
+            this.toggleAccordion(header);
+          });
+        });
+      }
+    
+      toggleAccordion(header) {
+        const content = header.nextElementSibling;
+    
+        // Toggle the active state
+        if (content.style.display === "block") {
+          content.style.display = "none";
+          header.setAttribute("aria-expanded", "false");
+        } else {
+          // Close all other sections
+          this.headers.forEach(h => {
+            const otherContent = h.nextElementSibling;
+            if (otherContent.style.display === "block") {
+              otherContent.style.display = "none";
+              h.setAttribute("aria-expanded", "false");
+            }
+          });
+    
+          content.style.display = "block";
+          header.setAttribute("aria-expanded", "true");
+        }
+      }
+    }
+    
+    // Initialize the Accordion
+    document.addEventListener('DOMContentLoaded', () => {
+      new Accordion('accordionContainer');
+    });
+    </script>
+    
+</body>
+</html>
