@@ -9,7 +9,7 @@ Here is the list of components:
 | 2 Column Component | [Source](https://github.com/NoToolsNoCraft/WordPress-components/blob/main/2%20Column%20Component/2ColumnComponent.html) | https://notoolsnocraft.tech/2-column-component/ |
 | Slideshow Banner Component | [Source](https://github.com/NoToolsNoCraft/WordPress-components/blob/main/Slideshow%20Banner%20Component/SlideshowBannerComponent.html) | https://notoolsnocraft.tech/slideshow-banner-component/ |
 | Dynamic Image Slider Component | [Source](https://github.com/NoToolsNoCraft/WordPress-components/blob/main/Dynamic%20Image%20Slider%20Component/DynamicImageSlider.html) | https://notoolsnocraft.tech/dynamic-image-slider-component/ |
-| + | + | + |
+| Accordion Component | [Source](https://github.com/NoToolsNoCraft/WordPress-components/blob/main/Accordion%20Component/Version2.html) | https://notoolsnocraft.tech/accordion-component/ |
 | + | + | + |
 | + | + | + |
 | + | + | + |
